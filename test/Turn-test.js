@@ -34,7 +34,7 @@ describe('Turn', function() {
     expect(turn.returnGuess()).to.equal('object');
   });
 
-  it('should return a card', function() {
+  it.skip('should return a card', function() {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?',
     ['object', 'array', 'function'], 'object');
 
@@ -48,7 +48,7 @@ describe('Turn', function() {
       });
   });
 
-  it('should evalute the guess', function() {
+  it.skip('should evalute the guess', function() {
     const card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?',
     ['object', 'array', 'function'], 'object');
     const card2 = new Card(2, 'What is a comma-separated list of related values?',
@@ -61,7 +61,7 @@ describe('Turn', function() {
     expect(turn2.evaluateGuess()).to.equal(false);
   });
 
-  it('should give feedback', function() {
+  it.skip('should give feedback', function() {
     const card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?',
     ['object', 'array', 'function'], 'object');
     const card2 = new Card(2, 'What is a comma-separated list of related values?',
