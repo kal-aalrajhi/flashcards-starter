@@ -17,7 +17,7 @@ describe('Turn', function() {
 
   it('should be instantiated with a user\'s guess and current flash card', function() {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?',
-    ['object', 'array', 'function'], 'array');
+    ['object', 'array', 'function'], 'object');
 
     const turn = new Turn('object', card);
       
@@ -27,7 +27,7 @@ describe('Turn', function() {
 
   it('should return a guess', function() {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?',
-    ['object', 'array', 'function'], 'array');
+    ['object', 'array', 'function'], 'object');
 
     const turn = new Turn('object', card);
       
@@ -36,25 +36,29 @@ describe('Turn', function() {
 
   it('should return a card', function() {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?',
-    ['object', 'array', 'function'], 'array');
+    ['object', 'array', 'function'], 'object');
 
     const turn = new Turn('object', card);
       
     expect(turn.returnCard()).to.equal({
-        "id": 1,
-        "question": "What allows you to define a set of related information using key-value pairs?",
-        "answers": ["object", "array", "function"],
-        "correctAnswer": "object"
+        'id': 1,
+        'question': 'What allows you to define a set of related information using key-value pairs?',
+        'answers': ['object', 'array', 'function'],
+        'correctAnswer': 'object'
       });
   });
 
   it('should evalute the guess', function() {
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?',
-    ['object', 'array', 'function'], 'array');
+    const card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?',
+    ['object', 'array', 'function'], 'object');
+    const card2 = new Card(2, 'What is a comma-separated list of related values?',
+    ['array', 'object', 'function'], 'array');
 
-    const turn = new Turn('object', card);
+    const turn1 = new Turn('object', card1);
+    const turn2 = new Turn('function', card2);
       
-    expect(turn.evaluateGuess()).to.equal(turn.correctAnswer);
+    expect(turn1.evaluateGuess()).to.equal(true);
+    expect(turn2.evaluateGuess()).to.equal(false);
   });
 
 });
