@@ -15,5 +15,12 @@ class Turn {
     evaluateGuess() {
         return this.guess === this.card.correctAnswer;
     }
+
+    giveFeedback() {
+        if(this.evaluateGuess()) {
+            return 'correct!';
+        }
+        return 'incorrect!';
+    }
 }
 module.exports = Turn;
