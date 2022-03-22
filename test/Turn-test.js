@@ -19,10 +19,19 @@ describe('Turn', function() {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?',
     ['object', 'array', 'function'], 'array');
 
-    const userTurn = new Turn('object', card);
+    const turn = new Turn('object', card);
       
-    expect(userTurn.guess).to.equal('object');
-    expect(userTurn.card).to.be.an.instanceof(Card);
+    expect(turn.guess).to.equal('object');
+    expect(turn.card).to.be.an.instanceof(Card);
+  });
+
+  it('should return a guess', function() {
+    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?',
+    ['object', 'array', 'function'], 'array');
+
+    const turn = new Turn('object', card);
+      
+    expect(turn.returnGuess()).to.equal('object');
   });
 
 });
