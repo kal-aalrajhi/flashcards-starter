@@ -72,8 +72,21 @@ describe('Round', function() {
           });
     });
 
+    it('number of turns should initially be 0', function() {
+        expect(round1.turns).to.equal(0);
+    });
+
     it('should create a new Turn instance when a guess is made', function() {
         round1.takeTurn('object');
         expect(round1.currentTurn).to.be.an.instanceof(Turn);
     });
+
+    it('should update turn count by 1 for each turn', function() {
+        round1.takeTurn('object');
+        round1.takeTurn('function');
+        round1.takeTurn('array');
+        expect(round1.turns).to.equal(3);
+    });
+
+
 });

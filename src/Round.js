@@ -3,6 +3,7 @@ const Turn = require("./Turn");
 class Round {
     constructor(currentDeck) {
         this.currentCard = currentDeck[0];
+        this.turns = 0;
         this.currentGuess = '';
         this.currentTurn = '';
     }
@@ -17,6 +18,7 @@ class Round {
         this.currentGuess = this.currentTurn.returnGuess;
 
         // turns count is updated
+        this.turns++;
         // the next card becomes the current card
         // guess is evaluates/recorded
             // incorrect guesses are stored via id in an array of incorrectGuesses
