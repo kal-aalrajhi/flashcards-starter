@@ -97,4 +97,12 @@ describe('Round', function() {
             correctAnswer: "array"
         });
     });
+
+    it('should give feedback for correct guesses', function() {
+        expect(round1.takeTurn('object')).to.equal('correct!');
+    });
+    
+    it('should give feedback for incorrect guesses', function() {
+        expect(round1.takeTurn('array')).to.equal('incorrect!');
+    });
 });
