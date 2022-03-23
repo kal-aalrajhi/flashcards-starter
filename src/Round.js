@@ -27,6 +27,12 @@ class Round {
             return 'WOW';
         }
     }
+
+    calculatePercentCorrect() {
+        let totalGuessesCount = this.currentDeck.length;  
+        let correctGuessesCount = totalGuessesCount - this.incorrectGuesses.length;
+        return Math.round((correctGuessesCount / totalGuessesCount) * 100);
+    }
 }
 
 module.exports = Round;
