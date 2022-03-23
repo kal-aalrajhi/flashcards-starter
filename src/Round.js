@@ -5,6 +5,10 @@ class Round {
         this.currentCard = currentDeck[0];
         // this.currentGuess = guess;
     }
+
+    returnCurrentCard() {
+        return this.currentCard;
+    }
 }
 
 module.exports = Round;

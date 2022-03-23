@@ -36,15 +36,31 @@ describe('Round', function() {
         expect(round1.currentCard).to.be.an.instanceof(Card);
     });
 
-    it('should return the current card', function() {
+    it('should store the first card as the current card', function() {
         expect(round1.currentCard).to.deep.equal({
             id: 1,
             question: 'What allows you to define a set of related information using key-value pairs?',
             answers: [ 'object', 'array', 'function' ],
             correctAnswer: 'object'
           });
-          
+
         expect(round2.currentCard).to.deep.equal({  
+            id: 1,
+            question: 'What allows you to define a set of related information using key-value pairs?',
+            answers: [ 'object', 'array', 'function' ],
+            correctAnswer: 'object'
+          });
+    });
+
+    it('should return the current card', function() {
+        expect(round1.returnCurrentCard()).to.deep.equal({
+            id: 1,
+            question: 'What allows you to define a set of related information using key-value pairs?',
+            answers: [ 'object', 'array', 'function' ],
+            correctAnswer: 'object'
+          });
+
+        expect(round2.returnCurrentCard()).to.deep.equal({  
             id: 1,
             question: 'What allows you to define a set of related information using key-value pairs?',
             answers: [ 'object', 'array', 'function' ],
