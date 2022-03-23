@@ -7,7 +7,7 @@ class Round {
         this.turns = 0;
         this.currentGuess = '';
         this.currentTurn = '';
-        this.incorrectGuesses = 0;
+        this.incorrectGuesses = [];
     }
 
     returnCurrentCard() {
@@ -20,6 +20,9 @@ class Round {
         this.turns++;
         this.currentCard = this.currentDeck[this.turns];
         
+        if(this.currentTurn.evaluateGuess()) {
+            this.incorrectGuesses.push(this.currentCard.id);
+        }
         // guess is evaluated/recorded
             // incorrect guesses are stored via id in an array of incorrectGuesses
         // feedback is returned whether the guess is incorrect or correct
