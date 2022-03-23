@@ -88,7 +88,7 @@ describe('Round', function() {
         expect(round1.turns).to.equal(3);
     });
 
-    it('should update current card after a turn is taken', function() {
+    it.only('should update current card after a turn is taken', function() {
         round1.takeTurn('object');
         expect(round1.currentCard).to.deep.equal({
             id: 2,
