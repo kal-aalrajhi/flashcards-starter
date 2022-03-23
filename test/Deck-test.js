@@ -6,10 +6,14 @@ const Turn = require('../src/Turn');
 const Card = require('../src/Card');
 
 describe('Deck', function() {
-    let deck1, deck2;
+    let card1, card2, card3;
     beforeEach(function() {
-        deck1 = new Deck();
-        deck2 = new Deck();
+        card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?',
+        ['object', 'array', 'function'], 'object');
+        card2 = new Card(2, 'What is a comma-separated list of related values?', 
+        ['array', 'object', 'function'], 'array');
+        card3 = new Card(3, 'What type of prototype method directly modifies the existing array?',
+        ['mutator method', 'accessor method', 'iteration method'], 'mutator method');
     });
 
     it('should be a function', function() {
@@ -17,7 +21,23 @@ describe('Deck', function() {
     });
 
     it('should be an instance of Deck', function() {
-        expect(deck1).to.be.an.instanceof(Deck);
+        let deck = new Deck();
+
+        expect(deck).to.be.an.instanceof(Deck);
+    });
+
+    it('should have a default value of an empty array', function() {
+        let deck = new Deck();
+
+        expect(deck.cards).to.be.a('array');
+        expect(deck.cards).to.have.length(0);
+    });
+
+    it('should take in a set of cards', function() {
+        let deck = new Deck([card1, card2, card3]);
+
+        expect(deck.cards).to.be.a('array');
+        expect(deck.cards).to.have.length(3);
     });
 
 });
