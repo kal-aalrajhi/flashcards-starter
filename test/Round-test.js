@@ -36,10 +36,6 @@ describe('Round', function() {
         expect(round1.currentCard).to.be.an.instanceof(Card);
     });
 
-    it('should not have a guess when created', function() {
-        expect(round1.currentGuess).to.equal('');
-    });
-
     it('should store the first card as the current card', function() {
         expect(round1.currentCard).to.deep.equal({
             id: 1,
@@ -127,5 +123,15 @@ describe('Round', function() {
     
     it('should give feedback for incorrect guesses', function() {
         expect(round1.takeTurn('array')).to.equal('incorrect!');
+    });
+
+    it('should not take more turns than cards available', function() {
+        round1.takeTurn('object');
+        round1.takeTurn('function');
+        round1.takeTurn('array');
+        expect(round1.turns).to.equal(3);
+
+        round1.takeTurn('pickles');
+        expect(round1.turns).to.equal(3);
     });
 });

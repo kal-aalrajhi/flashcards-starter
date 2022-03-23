@@ -5,7 +5,6 @@ class Round {
         this.currentDeck = currentDeck;
         this.currentCard = currentDeck[0];
         this.turns = 0;
-        this.currentGuess = '';
         this.currentTurn = '';
         this.incorrectGuesses = [];
     }
@@ -15,17 +14,18 @@ class Round {
     }
 
     takeTurn(guess) {
-        this.currentTurn = new Turn(guess, this.currentCard);
-        this.currentGuess = this.currentTurn.returnGuess;
-        
-        if(!this.currentTurn.evaluateGuess()) {
-            this.incorrectGuesses.push(this.currentCard.id);
+        if (this.turns < this.currentDeck.length) {
+            this.currentTurn = new Turn(guess, this.currentCard);
+            this.turns++;
+            if(!this.currentTurn.evaluateGuess()) {
+                this.incorrectGuesses.push(this.currentCard.id);
+            }
+            this.currentCard = this.currentDeck[this.turns];
+            return this.currentTurn.giveFeedback();
+        } else {
+            console.log("end");
+            return 'WOW';
         }
-
-        this.turns++;
-        this.currentCard = this.currentDeck[this.turns];
-
-        return this.currentTurn.giveFeedback();
     }
 }
 
