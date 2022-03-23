@@ -3,11 +3,15 @@ const Card = require("./Card");
 class Round {
     constructor(currentDeck) {
         this.currentCard = currentDeck[0];
-        // this.currentGuess = guess;
+        this.currentGuess = " ";
     }
 
     returnCurrentCard() {
         return this.currentCard;
+    }
+
+    takeTurn() {
+
     }
 }
 
