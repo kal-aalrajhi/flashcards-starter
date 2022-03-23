@@ -17,15 +17,15 @@ class Round {
     takeTurn(guess) {
         this.currentTurn = new Turn(guess, this.currentCard);
         this.currentGuess = this.currentTurn.returnGuess;
-        this.turns++;
-        this.currentCard = this.currentDeck[this.turns];
         
-        if(this.currentTurn.evaluateGuess()) {
+        if(!this.currentTurn.evaluateGuess()) {
             this.incorrectGuesses.push(this.currentCard.id);
         }
-        // guess is evaluated/recorded
-            // incorrect guesses are stored via id in an array of incorrectGuesses
-        // feedback is returned whether the guess is incorrect or correct
+
+        this.turns++;
+        this.currentCard = this.currentDeck[this.turns];
+
+        return this.currentTurn.giveFeedback();
     }
 }
 

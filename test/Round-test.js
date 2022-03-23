@@ -88,7 +88,7 @@ describe('Round', function() {
         expect(round1.turns).to.equal(3);
     });
 
-    it.only('should update current card after a turn is taken', function() {
+    it('should update current card after a turn is taken', function() {
         round1.takeTurn('object');
         expect(round1.currentCard).to.deep.equal({
             id: 2,
@@ -105,20 +105,20 @@ describe('Round', function() {
     it('should record incorrect guesses', function() {
         round1.takeTurn('pineapple');
         expect(round1.incorrectGuesses).to.have.length(1);
-        expect(round1.incorrectGuesses[0]).to.deep.equal('1');
+        expect(round1.incorrectGuesses[0]).to.equal(1);
 
         round1.takeTurn('bagel');
         round1.takeTurn('potato');
         expect(round1.incorrectGuesses).to.have.length(3);
-        expect(round1.incorrectGuesses[1]).to.deep.equal('2');
-        expect(round1.incorrectGuesses[2]).to.deep.equal('3');
+        expect(round1.incorrectGuesses[1]).to.equal(2);
+        expect(round1.incorrectGuesses[2]).to.equal(3);
     });
 
     it('should not record correct guesses', function() {
         round1.takeTurn('object');
-        expect(round1.incorrectGuesses).to.equal(0);
+        expect(round1.incorrectGuesses).to.have.length(0);
         round1.takeTurn('array');
-        expect(round1.incorrectGuesses).to.equal(0);
+        expect(round1.incorrectGuesses).to.have.length(0);
     });
 
     it('should give feedback for correct guesses', function() {
