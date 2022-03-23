@@ -99,15 +99,23 @@ describe('Round', function() {
     });
 
     it('should not have initial incorrect guesses', function() {
-
+        expect(round1.incorrectGuesses).to.equal(0);
     });
 
     it('should record incorrect guesses', function() {
-        
+        round1.takeTurn('pineapple');
+        expect(round1.incorrectGuesses).to.equal(1);
+
+        round1.takeTurn('bagel');
+        round1.takeTurn('potato');
+        expect(round1.incorrectGuesses).to.equal(3);
     });
 
     it('should not record correct guesses', function() {
-
+        round1.takeTurn('object');
+        expect(round1.incorrectGuesses).to.equal(0);
+        round1.takeTurn('array');
+        expect(round1.incorrectGuesses).to.equal(0);
     });
 
     it('should give feedback for correct guesses', function() {
