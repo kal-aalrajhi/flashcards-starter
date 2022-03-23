@@ -1,7 +1,9 @@
+const Card = require("./Card");
+
 class Round {
-    constructor(guess, currentDeck) {
+    constructor(currentDeck) {
         this.currentCard = currentDeck[0];
-        this.currentGuess = guess;
+        // this.currentGuess = guess;
     }
 }
 

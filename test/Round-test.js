@@ -2,13 +2,14 @@ const chai = require('chai');
 const expect = chai.expect;
 
 const Round = require('../src/Round');
+const Turn = require('../src/Turn');
 const Deck = require('../src/Deck');
 const Card = require('../src/Card');
 
 describe('Round', function() {
     let card1, card2, card3;
     let deckSet1, deckSet2;
-    let round;
+    let round1, round2;
     beforeEach(function() {
         card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?',
         ['object', 'array', 'function'], 'object');
@@ -19,7 +20,8 @@ describe('Round', function() {
 
         deckSet1 = new Deck([card1, card2, card3]);
         deckSet2 = new Deck([card1, card2]);
-        round = new Round();
+        round1 = new Round(deckSet1.cards);
+        round2 = new Round(deckSet2.cards);
     });
 
     it('should be a function', function() {
@@ -27,22 +29,26 @@ describe('Round', function() {
     });
 
     it('should be an instance of Round', function() {
-        expect(round).to.be.an.instanceof(Round);
+        expect(round1).to.be.an.instanceof(Round);
     });
 
-    it('should take in a guess', function() {
-        
+    it('should have a card ready when created', function() {
+        expect(round1.currentCard).to.be.an.instanceof(Card);
     });
 
-    // it('should take in a deck', function() {
-
-    // });
-
-    // it('should have a card ready', function() {
-
-    // });
-
-    // it('should return the current card', function() {
-
-    // });
+    it('should return the current card', function() {
+        expect(round1.currentCard).to.deep.equal({
+            id: 1,
+            question: 'What allows you to define a set of related information using key-value pairs?',
+            answers: [ 'object', 'array', 'function' ],
+            correctAnswer: 'object'
+          });
+          
+        expect(round2.currentCard).to.deep.equal({  
+            id: 1,
+            question: 'What allows you to define a set of related information using key-value pairs?',
+            answers: [ 'object', 'array', 'function' ],
+            correctAnswer: 'object'
+          });
+    });
 });
