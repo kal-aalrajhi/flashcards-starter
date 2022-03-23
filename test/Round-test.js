@@ -37,7 +37,7 @@ describe('Round', function() {
     });
 
     it('should not have a guess when created', function() {
-        expect(round1.currentGuess).to.equal(" ");
+        expect(round1.currentGuess).to.equal('');
     });
 
     it('should store the first card as the current card', function() {
@@ -73,6 +73,7 @@ describe('Round', function() {
     });
 
     it('should create a new Turn instance when a guess is made', function() {
-
+        round1.takeTurn('object');
+        expect(round1.currentTurn).to.be.an.instanceof(Turn);
     });
 });
