@@ -98,6 +98,18 @@ describe('Round', function() {
         });
     });
 
+    it('should not have initial incorrect guesses', function() {
+
+    });
+
+    it('should record incorrect guesses', function() {
+        
+    });
+
+    it('should not record correct guesses', function() {
+
+    });
+
     it('should give feedback for correct guesses', function() {
         expect(round1.takeTurn('object')).to.equal('correct!');
     });
