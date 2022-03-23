@@ -40,4 +40,8 @@ describe('Deck', function() {
         expect(deck.cards).to.have.length(3);
     });
 
+    it('should count cards', function() {
+        let deck = new Deck([card1, card2, card3]);
+        expect(deck.countCards()).to.equal(3);
+    })
 });
