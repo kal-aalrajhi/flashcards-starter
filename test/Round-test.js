@@ -137,6 +137,11 @@ describe('Round', function() {
     });
 
     it('should calculate percent of correct guesses', function() {
+        round1.takeTurn('hamburger');
+        round1.takeTurn('bagel');
+        round1.takeTurn('mutator method');
+        expect(round1.calculatePercentCorrect()).to.equal(33);
+
         round2.takeTurn('object');
         round2.takeTurn('function');
         expect(round2.calculatePercentCorrect()).to.equal(50);

@@ -23,7 +23,6 @@ class Round {
             this.currentCard = this.currentDeck[this.turns];
             return this.currentTurn.giveFeedback();
         } else {
-            console.log("end");
             return 'WOW';
         }
     }
