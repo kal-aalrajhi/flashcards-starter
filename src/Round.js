@@ -20,6 +20,7 @@ class Round {
         // turns count is updated
         this.turns++;
         // the next card becomes the current card
+        
         // guess is evaluates/recorded
             // incorrect guesses are stored via id in an array of incorrectGuesses
         // feedback is returned whether the guess is incorrect or correct
