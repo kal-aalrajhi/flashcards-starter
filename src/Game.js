@@ -22,16 +22,26 @@ class Game {
   }
 
   start() {
-    this.cards = prototypeQuestions.map(question => {
-      return new Card(question.id, question.question, question.answers, question.correctAnswer);
-    });
-
-    this.deck = new Deck(this.cards);
-
-    this.currentRound = new Round(this.deck);
+    this.createCards();
+    this.createDeck();
+    this.createRound();
 
     this.printMessage(this.deck, this.currentRound);
     this.printQuestion(this.currentRound);
+  }
+
+  createCards() {
+    this.cards = prototypeQuestions.map(question => {
+      return new Card(question.id, question.question, question.answers, question.correctAnswer);
+    });
+  }
+  
+  createDeck() {
+    this.deck = new Deck(this.cards);
+  }
+
+  createRound() {
+    this.currentRound = new Round(this.deck);
   }
 }
 

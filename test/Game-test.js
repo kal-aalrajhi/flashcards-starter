@@ -27,17 +27,20 @@ describe('Game', function() {
     });
     
     it('should have a start method that creates cards', function() {
-        game.start();
+        game.createCards();
         expect(game.cards).to.have.length(prototypeQuestions.length);
     });
 
     it('should put cards in a deck', function() {
-        game.start();
+        game.createCards();
+        game.createDeck();
         expect(game.deck.countCards()).to.equal(prototypeQuestions.length);
     });
 
     it('should create a new round', function() {
-        game.start();
+        game.createCards();
+        game.createDeck();
+        game.createRound();
         expect(game.currentRound).to.be.an.instanceOf(Round);
     });
 });
