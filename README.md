@@ -1,12 +1,47 @@
-# FlashCards Starter Kit
+# FlashCards
 
-## Fork This Repo
+<img width="150" alt="FlashCards" src="https://cpb-us-e1.wpmucdn.com/blogs.uoregon.edu/dist/0/11988/files/2015/10/flashcards-12d2f4w.png">
 
-On the top right corner of this page, click the **Fork** button.
+## Table of Contents
 
-## Setup
+  - [Introduction](#introduction)
+  - [Technologies](#technologies)
+  - [Features](#features)
+  - [Page Demo](#page-demo)
+  - [Possible Future Extensions](#possible-future-extensions)
+  - [Set Up](#set-up)
+  - [Contributors](#contributors)
+  - [Project Specs](#project-specs)
+  - [Project GitHub Repo](#project-github-repo)
 
-Clone down the forked repo (from your GitHub). Since you don't want to name your project "flashcards-starter", you can use an optional argument when you run `git clone` (you replace the `[...]` with the terminal command arguments):
+## Introduction 
+Users who need to brush up on their JavaScript terms are encouraged to try out **FlashCards!**. Why waste paper when you can study on your own terminal! *What does the callback function for the map() method take in?* who knows!? Well, **FlashCards** do and they'll help you know it as well! Run through 30 pre-written flash cards with multiple choices to keep you from overburdening your memory. Also, if you got your answer correct/incorrect - you'll know immediately with our automatic feedback feature! When you've finally made it through the deck, you'll be given a percent score of questions you got correct. Keep practicing, and you'll get better *or your money back!*.
+
+This project was assigned as a part of Turing School of Software and Design's Front-End program, students had about 4 days to complete it. We were challenged to use TDD via Mocha/Chai. The process began by developing a test suite of failing tests (red) for each feature, making sure both happy and sad paths were accounted for. Then we moved on to making the tests pass (green) by building out features bit-by-bit. Finally, we had to refactor our code to make sure everything came together and the code was clean/readable. 
+
+## Technologies
+  - Javascript 
+  - Mocha
+  - Chai
+  - GitProjects
+
+## Features
+- Terminal based user interface that displays a set of questions and possible answers, one-by-one, and then prompts the user to answer the question
+- Evalutes the guess and provides immediate feedback as either *correct* or *incorrect*
+- Stores incorrect answers by id
+- Calculates percent correct and displays it to user at the end of game
+
+
+## Page Demo
+![Example of game functionality](https://media.giphy.com/media/tIv3e6vbGwIHGQcK5s/giphy.gif)
+
+## Possible Future Extensions
+- The ability to review incorrect answers
+- Timer to report how long it took to complete a study deck
+- Have the option to study other decks
+
+## Set Up
+Clone down the forked repo (from your GitHub). 
 
 ```bash
 git clone [remote-address] [what you want to name the repo]
@@ -18,54 +53,15 @@ Once you have cloned the repo, change into the directory and install the library
 npm install
 ```
 
-To verify that it is setup correctly, run `npm test` in your terminal. You should have 5 pending tests in your `Card` test file that show up.
+To verify that it is setup correctly, run `npm test` in your terminal. You should have many completed tests show up.
 
-Running `node index.js` from the root of your project should result in the following message being displayed in your terminal: 
+To run through the question deck run `node index.js` from the root of your project, which should result in the first question being presented.
 
-```bash
-Your project is running...
-```
+## Contributors
+- Kal Al-Rajhi (GitHub: kal-aalrajhi)
 
-*Note that you will not need to you run your server until you are instantiating your `Game` class in Iteration 3. Prior to that, you should be using TDD to drive your code. You should check the functionality of your application by running your tests via `npm test`.*
+## Project Specs
+- The spec for this project can be found [here](https://frontend.turing.edu/projects/flash-cards.html).
 
-
-## Where to Add Your Code
-
-### JavaScript
-
-**Create all of your feature code files in the `src` directory.**
-
-We will be using the `module.exports` and `require` syntax to share code across files.
-
-## How to View Your Code in Action
-
-Once you are working through Iteration 3, you will want to start your server to test your functionality.
-In the terminal, run:
-
-```bash
-node index.js
-```
-
-When the game is functioning appropriately, you will be prompted for each question, have the opportunity to select an answer, and will be given feedback. You will be able to play through the entire deck of cards:
-
-![flash cards example gif](https://media.giphy.com/media/1zkb1q58eTiTH6D7wc/giphy.gif)
-
----
-
-## Test Files Organization
-
-Similar to feature code, your test code needs to be put in a specific place for it to run successfully.
-
-**Put all of your test files in the `test` directory.** As a convention, all test filenames should end with `-test.js`. For instance: `Round-test.js`.
-
-## Running Your Tests
-
-Run your test suite using the command:
-
-```bash
-npm test
-```
-
-The test results will output to the terminal.
-
-
+## Project GitHub Repo
+- The project repo can be found [here](https://github.com/kal-aalrajhi/flashcards).
