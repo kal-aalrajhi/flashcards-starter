@@ -12,6 +12,9 @@ describe('Game', function() {
     beforeEach(function() {
         prototypeQuestions = data.prototypeData;
         game = new Game();
+        game.createCards();
+        game.createDeck();
+        game.createRound();
     });
 
     it('should be a function', function() {
@@ -22,25 +25,15 @@ describe('Game', function() {
         expect(game).to.be.an.instanceof(Game);
     });
     
-    it('should keep track of the current round', function() {
-        expect(game.currentRound).to.equal('');
-    });
-    
     it('should have a start method that creates cards', function() {
-        game.createCards();
         expect(game.cards).to.have.length(prototypeQuestions.length);
     });
 
     it('should put cards in a deck', function() {
-        game.createCards();
-        game.createDeck();
         expect(game.deck.countCards()).to.equal(prototypeQuestions.length);
     });
 
     it('should create a new round', function() {
-        game.createCards();
-        game.createDeck();
-        game.createRound();
         expect(game.currentRound).to.be.an.instanceOf(Round);
     });
 });
