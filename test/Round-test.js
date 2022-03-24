@@ -21,8 +21,10 @@ describe('Round', function() {
 
         deckSet1 = new Deck([card1, card2, card3]);
         deckSet2 = new Deck([card1, card2]);
-        round1 = new Round(deckSet1.cards);
-        round2 = new Round(deckSet2.cards);
+        round1 = new Round(deckSet1);
+        round2 = new Round(deckSet2);
+
+        console.log = function(){};
     });
 
     it('should be a function', function() {
@@ -39,18 +41,11 @@ describe('Round', function() {
 
     it('should store the first card as the current card', function() {
         expect(round1.currentCard).to.deep.equal(card1);
-
-        expect(round2.currentCard).to.deep.equal({  
-            id: 1,
-            question: 'What allows you to define a set of related information using key-value pairs?',
-            answers: [ 'object', 'array', 'function' ],
-            correctAnswer: 'object'
-        });
+        expect(round2.currentCard).to.deep.equal(card1);
     });
 
     it('should return the current card', function() {
         expect(round1.returnCurrentCard()).to.deep.equal(card1);
-
         expect(round2.returnCurrentCard()).to.deep.equal(card1);
     });
 
@@ -131,7 +126,6 @@ describe('Round', function() {
         round1.takeTurn('hamburger');
         round1.takeTurn('bagel');
         round1.takeTurn('mutator method');
-        
         expect(round1.endRound()).to.equal('** Round over! ** You answered 33% of the questions correctly!');
     });
 });

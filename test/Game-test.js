@@ -43,5 +43,4 @@ describe('Game', function() {
         game.start();
         expect(game.currentRound).to.be.an.instanceOf(Round);
     });
-
 });

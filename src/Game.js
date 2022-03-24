@@ -22,18 +22,16 @@ class Game {
   }
 
   start() {
-    // Creates cards
-    prototypeQuestions.forEach(question => {
-      let card = new Card(question.id, question.question, question.answers, question.correctAnswer);
-      this.cards.push(card);
+    this.cards = prototypeQuestions.map(question => {
+      return new Card(question.id, question.question, question.answers, question.correctAnswer);
     });
 
-    // Puts cards in a deck
     this.deck = new Deck(this.cards);
 
-    // Creates a new round
     this.currentRound = new Round(this.deck);
-    
+
+    this.printMessage(this.deck, this.currentRound);
+    this.printQuestion(this.currentRound);
   }
 }
 
