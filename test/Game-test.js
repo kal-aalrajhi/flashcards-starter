@@ -25,6 +25,7 @@ describe('Game', function() {
         deckSet2 = new Deck([card1, card2]);
         round1 = new Round(deckSet1.cards);
         round2 = new Round(deckSet2.cards);
+        game = new Game();
     });
 
     it('should be a function', function() {
@@ -34,4 +35,10 @@ describe('Game', function() {
     it('should be an instance of Game', function() {
         expect(game).to.be.an.instanceof(Game);
     });
+
+    it('should keep track of the current round', function() {
+        expect(game.currentRound).to.equal('');
+    });
+
+    
 });
