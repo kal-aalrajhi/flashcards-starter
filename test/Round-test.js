@@ -142,8 +142,16 @@ describe('Round', function() {
         round1.takeTurn('mutator method');
         expect(round1.calculatePercentCorrect()).to.equal(33);
 
-        round2.takeTurn('object');
-        round2.takeTurn('function');
-        expect(round2.calculatePercentCorrect()).to.equal(50);
+        round2.takeTurn('potato');
+        round2.takeTurn('sack race');
+        expect(round2.calculatePercentCorrect()).to.equal(0);
+    });
+
+    it('should prompt the end of round by providing an end round message and percent correct score', function() {
+        round1.takeTurn('hamburger');
+        round1.takeTurn('bagel');
+        round1.takeTurn('mutator method');
+        
+        expect(round1.endRound()).to.equal('** Round over! ** You answered 33% of the questions correctly!');
     });
 });

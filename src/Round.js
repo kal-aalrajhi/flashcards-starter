@@ -23,7 +23,7 @@ class Round {
             this.currentCard = this.currentDeck[this.turns];
             return this.currentTurn.giveFeedback();
         } else {
-            return 'WOW';
+            this.endRound();
         }
     }
 
@@ -31,6 +31,11 @@ class Round {
         let totalGuessesCount = this.currentDeck.length;  
         let correctGuessesCount = totalGuessesCount - this.incorrectGuesses.length;
         return Math.round((correctGuessesCount / totalGuessesCount) * 100);
+    }
+
+    endRound() {
+        console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`);
+        return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
     }
 }
 
