@@ -30,6 +30,7 @@ This project was assigned as a part of Turing School of Software and Design's Fr
 - Evalutes the guess and provides immediate feedback as either *correct* or *incorrect*
 - Stores incorrect answers by id
 - Calculates percent correct and displays it to user at the end of game
+- Test suite with 39 different tests
 
 
 ## Page Demo
