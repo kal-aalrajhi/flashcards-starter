@@ -34,4 +34,14 @@ describe('Game', function() {
         expect(game.cards).to.have.length(prototypeQuestions.length);
     });
 
+    it('should put cards in a deck', function() {
+        game.start();
+        expect(game.deck.countCards()).to.equal(prototypeQuestions.length);
+    });
+
+    it('should create a new round', function() {
+        game.start();
+        expect(game.currentRound).to.be.an.instanceOf(Round);
+    });
+
 });
