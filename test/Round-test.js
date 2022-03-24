@@ -38,12 +38,7 @@ describe('Round', function() {
     });
 
     it('should store the first card as the current card', function() {
-        expect(round1.currentCard).to.deep.equal({
-            id: 1,
-            question: 'What allows you to define a set of related information using key-value pairs?',
-            answers: [ 'object', 'array', 'function' ],
-            correctAnswer: 'object'
-        });
+        expect(round1.currentCard).to.deep.equal(card1);
 
         expect(round2.currentCard).to.deep.equal({  
             id: 1,
@@ -54,19 +49,9 @@ describe('Round', function() {
     });
 
     it('should return the current card', function() {
-        expect(round1.returnCurrentCard()).to.deep.equal({
-            id: 1,
-            question: 'What allows you to define a set of related information using key-value pairs?',
-            answers: [ 'object', 'array', 'function' ],
-            correctAnswer: 'object'
-        });
+        expect(round1.returnCurrentCard()).to.deep.equal(card1);
 
-        expect(round2.returnCurrentCard()).to.deep.equal({  
-            id: 1,
-            question: 'What allows you to define a set of related information using key-value pairs?',
-            answers: [ 'object', 'array', 'function' ],
-            correctAnswer: 'object'
-        });
+        expect(round2.returnCurrentCard()).to.deep.equal(card1);
     });
 
     it('number of turns should initially be 0', function() {
@@ -87,12 +72,7 @@ describe('Round', function() {
 
     it('should update current card after a turn is taken', function() {
         round1.takeTurn('object');
-        expect(round1.currentCard).to.deep.equal({
-            id: 2,
-            question: "What is a comma-separated list of related values?",
-            answers: ["array", "object", "function"],
-            correctAnswer: "array"
-        });
+        expect(round1.currentCard).to.deep.equal(card2);
     });
 
     it('should not have initial incorrect guesses', function() {
